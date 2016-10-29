@@ -21,3 +21,17 @@ public class CislaTest {
     }
     
 }
+
+/*
+for (int i = 2; i < cislo; i++)
+{   
+    boolean pokracuj = true;
+    do  {
+        if (cislo%i==0)
+            {arraylist.add(i); cislo = cislo/1}
+            else{break;}    
+        }
+    while (pokracuj)
+    if (cislo == 1){break;}
+}
+*/
