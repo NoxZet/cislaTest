@@ -19,11 +19,6 @@ public class MyInput
     }
     
     
-    
-    
-    
-    
-    
     private void askEverything ()
         {
             int numberOf = onlyNatural("U kolika čísel hledáš nejmenší společný jmenovatel: ");
