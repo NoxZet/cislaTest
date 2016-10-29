@@ -21,7 +21,7 @@ public class Number {
         primes.clear();
         int worknum = number;
         int limit = worknum/2;
-        for(Integer i = 1; i <= limit;)
+        for(Integer i = 2; i <= limit;)
         {
             if (worknum % i == 0)
             {
