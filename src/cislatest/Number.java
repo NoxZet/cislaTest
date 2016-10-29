@@ -15,13 +15,13 @@ public class Number {
         Split();
     }
     /** Rozdělí číslo na prvočísla pro vnitřní použití (ArrayList primes).
-     *  Ošetřeno proti dvojitému použití.*/
+     * Ošetřeno proti dvojitému použití.*/
     private void Split()
     {
         primes.clear();
         int worknum = number;
         int limit = worknum/2;
-        for(Integer i = 1; i <= limit;)
+        for(Integer i = 2; i <= limit;)
         {
             if (worknum % i == 0)
             {
