@@ -5,40 +5,40 @@ import java.util.ArrayList;
 /** Class Number ukládá jedno číslo a pracuje s ním */
 public class Number {
     private int number;
-    private ArrayList<Integer> primes = new ArrayList<Integer>();
-    private boolean calculated;
+    private ArrayList<Integer> primes = new ArrayList();
     /**
-     * @param number číslo
+     * @param number číslo, se kterým se bude pracovat
      */
     Number (int number)
     {
         this.number = number;
+        Split();
     }
     /** Rozdělí číslo na prvočísla pro vnitřní použití (ArrayList primes).
      *  Ošetřeno proti dvojitému použití.*/
-    public void Split()
+    private void Split()
     {
-        int limit;
-        if (this.primes.isEmpty())
+        primes.clear();
+        int worknum = number;
+        int limit = worknum/2;
+        for(Integer i = 1; i <= limit;)
         {
-            limit = this.number/2;
-            for(Integer i = 1; i <= limit;)
+            if (worknum % i == 0)
             {
-                if (this.number % i == 0)
-                    this.primes.add(i);
-                else
-                    i++;
+                primes.add(i);
+                worknum /= i;
             }
-            calculated = true;
+            else
+                i++;
         }
     }
-    /** Zjistí, zda byl proveden rozklad na prvočísla
+    /** Vyhodí číslo
      * 
-     * @return true pokud byl proveden rozklad
+     * @return číslo
      */
-    public boolean IsSplit()
+    public int getNumber()
     {
-        return calculated;
+        return number;
     }
     /** Vyhodí vnitřní proměnnou primes s prvočísly
      * 
@@ -46,6 +46,6 @@ public class Number {
      */
     public ArrayList<Integer> Output()
     {
-        return this.primes;
+        return primes;
     }
 }
