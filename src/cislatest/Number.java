@@ -15,7 +15,7 @@ public class Number {
         Split();
     }
     /** Rozdělí číslo na prvočísla pro vnitřní použití (ArrayList primes).
-     *  Ošetřeno proti dvojitému použití.*/
+     * Ošetřeno proti dvojitému použití.*/
     private void Split()
     {
         primes.clear();
