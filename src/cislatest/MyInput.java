@@ -12,14 +12,37 @@ import java.util.Scanner;
 public class MyInput 
 {
     Scanner sc = new Scanner (System.in, "Windows-1250");
+    Number[] arrayNumbers;
     
     MyInput()
     {
-    askEverything ();
+    toObjects(askEverything ());
+    }
+    
+    public Number[] getArrayNumbers()
+    {
+    return arrayNumbers;
     }
     
     
-    private void askEverything ()
+    
+    
+    
+    private void toObjects (int[] values)
+    {
+        arrayNumbers = new Number[values.length];
+        for (int i = 0; i < values.length; i++)
+        {
+            arrayNumbers[i] = new Number(values[i]);
+        }
+    }
+    
+    
+    /** Zeptá se uživalete na počet čísel a poté jejich hodnoty
+     * 
+     * @return navrátí pole s hodnotami čísel
+     */
+    private int[] askEverything ()
         {
             int numberOf = onlyNatural("U kolika čísel hledáš nejmenší společný jmenovatel: ");
             System.out.println("Postupně vkládej čísla");
@@ -29,16 +52,17 @@ public class MyInput
                     values[i] = onlyNatural((i+1) + ". číslo: ");
                 }
             
-            
+            return values;
         }
     
     /** Zkontroluje, zde je vstup přirozené číslo
-     * 
-     * @return ArrayList s prvočísly, nebo prázdnou, pokud nebylo provedeno rozdělení (např. funkcí Split())
+     * @param String, který se ptá
+     * @return navrátí vždy kladné celé číslo
      */
     private int onlyNatural (String entered)
     {
         int result = -1;
+        String helpString = "";
         boolean contin = true;
         boolean missed = false;
         System.out.print(entered);
@@ -46,14 +70,15 @@ public class MyInput
         {
             try
             {
-                result = Integer.parseInt(sc.nextLine());
+                helpString = sc.nextLine();
+                result = Integer.parseInt(helpString);
                 if (result < 1){int breakIt = Integer.parseInt("s");}
                     else {contin = false;};
 
             }
             catch (Exception e)
             {
-            System.out.println(result + " není přirozené číslo!");
+            System.out.print(helpString + " není přirozené číslo, zkus to znovu: ");
             missed = true;
             }
         }
