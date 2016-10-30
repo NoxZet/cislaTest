@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package cislatest;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
@@ -28,7 +29,10 @@ public class MyInput
     return arrayNumbers;
     }
     
-    
+    public int getNObjects()
+    {
+    return arrayNumbers.length;
+    }
     
     
     /** Metoda, která dostane pole hodnot a vytvoří z nich objekty Number */
@@ -43,6 +47,22 @@ public class MyInput
         }
     }
     
+    public void printResult (ArrayList<Integer> list, boolean lower)
+    {
+        int totalResult = 1;
+        String postup;
+        for (int i : list)
+        {
+            totalResult *= i;
+            System.out.println(i);
+        }
+        
+        if(lower)
+        {System.out.println("Největší společný dělitel je " + totalResult);}
+        else {System.out.println("Nejmenší společný násobek je " + totalResult);}
+        
+        
+    }
     
     /** Zeptá se uživalete na počet čísel a poté jejich hodnoty
      * 
@@ -72,13 +92,11 @@ public class MyInput
         String helpString = "";
         // True, dokud uživatel nezadá správný vstup
         boolean contin = true;
-        // Pokud uživatel zadal alespoň jednou špatný vstup, nastaví se na true a poté zajistí vypsání na co uživatel odpověděl
-        boolean missed = false;
-        System.out.print(entered);
         while (contin)
         {
             try
             {
+                System.out.print(entered);
                 helpString = sc.nextLine();
                 result = Integer.parseInt(helpString);
                 // vyhodí program do catch, pokud je číslo menší než jedna, jinak zajistí výstup ze smyčky
@@ -88,11 +106,9 @@ public class MyInput
             }
             catch (Exception e)
             {
-            System.out.print(helpString + " není přirozené číslo, zkus to znovu: ");
-            missed = true;
+            System.out.println(helpString + " není přirozené číslo");
             }
         }
-        if (missed){System.out.println(entered + result);}
         
         return result;
     }

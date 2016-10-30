@@ -17,7 +17,9 @@ public class CislaTest {
     public static void main(String[] args) {
         // TODO code application logic here
         MyInput aloneClass = new MyInput();
-        //nějaká třída, jako parametr dostane jenom aloneClass.getArrayNumbers, délku si pak zjistíš s .length
+        NumberGroup grupa = new NumberGroup (aloneClass.getArrayNumbers(), aloneClass.getNObjects());
+        aloneClass.printResult(grupa.calculate(false), false);
+        aloneClass.printResult(grupa.calculate(true), true);
     }
     
 }
