@@ -1,7 +1,6 @@
 package cislatest;
     
 import java.util.ArrayList;
-import java.util.Collections;
 
 /** Class Number ukládá jedno číslo a pracuje s ním */
 public class Number {
@@ -15,7 +14,7 @@ public class Number {
     {
         this.number = number;
         Split();
-        Collections.copy(workList, primes);
+        workList.addAll(primes);
     }
     /** Rozdělí číslo na prvočísla pro vnitřní použití (ArrayList primes).
      * Ošetřeno proti dvojitému použití.*/
@@ -49,7 +48,8 @@ public class Number {
     public void resetWorkList()
     {
         workList.clear();
-        Collections.copy(workList, primes);        
+        workList.addAll(primes);
+        //Collections.copy(workList, primes);        
     }
     /** Vyhodí vnitřní proměnnou primes s prvočísly
      * 

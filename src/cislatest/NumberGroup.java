@@ -14,7 +14,7 @@ public class NumberGroup {
         this.count = count;
         nums = numbers;
     }
-    /** Zjistí nejvyšší výskyt daného prvočísla v ArrayListech čísel
+    /** Zjistí nejvyšší výskyt jednoho daného prvočísla v ArrayListech všech čísel
      * 
      * @param low Pokud je true, zjistí nejnižší počet
      * @param num Číslo, které se hledá (musí být nejnižší v pracovním ArrayListu)
@@ -24,24 +24,22 @@ public class NumberGroup {
     {
         ArrayList<Integer> workList;
         int[] numCount = new int[count];
-        int i, e, size, local, total;
+        int i, size, local, total;
         if (low)
-            total = -1;
+            total = -1; // Udává nejvyšší/nejnižší počet prvočísel
         else
             total = 0;
         for(i = 0; i < count; i++)
         {
-            e = 0;
-            local = 0;
-            workList = nums[i].getWorkList();
-            size = workList.size();
+            workList = nums[i].getWorkList(); // Kopie ArrayListu čísla, ze kterého se umazávají již sečtená prvočísla
+            size = workList.size(); // Počet všech prvočísel v čísle
             if (size>0)
             {
-                while(e < size)
+                local = 0; // Udává počet prvočísel v jednom čísle
+                while(local < size)
                 {
                     if (workList.get(0)==num)
                     {
-                        e++;
                         local++;
                         workList.remove(0);
                     }
@@ -62,10 +60,14 @@ public class NumberGroup {
         }
         return total;
     }
+    /** Zjistí nejnižší číslo ze všech pracovních ArrayListů
+     * 
+     * @return nejnižší číslo
+     */
     private int lowestNumber()
     {
         ArrayList<Integer> workList;
-        int i, local;
+        int i, local; // local - udává nejnižší prvočíslo v právě prohledávaném čísle
         int total = -1;
         for(i = 0; i < count; i++)
         {
