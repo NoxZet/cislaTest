@@ -11,14 +11,18 @@ import java.util.Scanner;
  */
 public class MyInput 
 {
+    /** Pro funkčnost vstupu */
     Scanner sc = new Scanner (System.in, "Windows-1250");
+    /** List čísel, naplní se podle vstupu od uživatele */
     Number[] arrayNumbers;
     
+    /** Konstruktor, vytvoří rovnou pole objektů Number */
     MyInput()
     {
     toObjects(askEverything ());
     }
     
+    /** getter na ukazatel do pole objektů Number */
     public Number[] getArrayNumbers()
     {
     return arrayNumbers;
@@ -27,12 +31,14 @@ public class MyInput
     
     
     
-    
+    /** Metoda, která dostane pole hodnot a vytvoří z nich objekty Number */
     private void toObjects (int[] values)
     {
+        //určí délku pole objetů Number
         arrayNumbers = new Number[values.length];
         for (int i = 0; i < values.length; i++)
         {
+            //postupně dosazuje hodnoty
             arrayNumbers[i] = new Number(values[i]);
         }
     }
@@ -51,7 +57,6 @@ public class MyInput
                 {
                     values[i] = onlyNatural((i+1) + ". číslo: ");
                 }
-            
             return values;
         }
     
@@ -61,9 +66,13 @@ public class MyInput
      */
     private int onlyNatural (String entered)
     {
+        // Výsledné číslo 
         int result = -1;
+        // Pomocný String, pro případ, že uživatel zadá špatný vstup, tak vstup vypíše
         String helpString = "";
+        // True, dokud uživatel nezadá správný vstup
         boolean contin = true;
+        // Pokud uživatel zadal alespoň jednou špatný vstup, nastaví se na true a poté zajistí vypsání na co uživatel odpověděl
         boolean missed = false;
         System.out.print(entered);
         while (contin)
@@ -72,6 +81,7 @@ public class MyInput
             {
                 helpString = sc.nextLine();
                 result = Integer.parseInt(helpString);
+                // vyhodí program do catch, pokud je číslo menší než jedna, jinak zajistí výstup ze smyčky
                 if (result < 1){int breakIt = Integer.parseInt("s");}
                     else {contin = false;};
 
