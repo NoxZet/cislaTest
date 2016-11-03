@@ -15,7 +15,6 @@ public class Number {
         this.number = number;
         Split();
         workList.addAll(primes);
-        System.out.println(primes);
     }
     /** Rozdělí číslo na prvočísla pro vnitřní použití (ArrayList primes).
      * Ošetřeno proti dvojitému použití.*/
