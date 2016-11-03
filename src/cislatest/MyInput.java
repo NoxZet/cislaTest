@@ -112,7 +112,5 @@ public class MyInput
         
         return result;
     }
-    
+
 }
-
-
