@@ -15,6 +15,7 @@ public class Number {
         this.number = number;
         Split();
         workList.addAll(primes);
+        System.out.println(primes);
     }
     /** Rozdělí číslo na prvočísla pro vnitřní použití (ArrayList primes).
      * Ošetřeno proti dvojitému použití.*/
@@ -22,8 +23,8 @@ public class Number {
     {
         primes.clear();
         int worknum = number;
-        int limit = worknum/2;
-        for(Integer i = 2; i <= limit;)
+        if (number == 1) {primes.add(1);}
+        for(Integer i = 2; i <= number;)
         {
             if (worknum % i == 0)
             {
@@ -32,6 +33,7 @@ public class Number {
             }
             else
                 i++;
+            if(i == 1){break;}
         }
     }
     /** Vyhodí číslo
