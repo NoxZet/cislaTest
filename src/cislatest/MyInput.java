@@ -50,7 +50,6 @@ public class MyInput
     public void printResult (ArrayList<Integer> list, boolean lower)
     {
         int totalResult = 1;
-        String postup;
         for (int i : list)
         {
             totalResult *= i;

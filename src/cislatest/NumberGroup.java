@@ -46,6 +46,7 @@ public class NumberGroup {
                     else
                         break;
                 }
+                System.out.println(num+": "+local+", ");
                 if (low)
                 {
                     if (total==-1 || local<total)
@@ -103,6 +104,8 @@ public class NumberGroup {
             else
                 loop = false;
         }
+        for(int i=0; i<count; i++)
+            nums[i].resetWorkList();
         return result;
     }
     
