@@ -98,7 +98,7 @@ public class NumberGroup {
             {
                 num = nextCount(check, low);
                 for(int i = 0; i<num; i++)
-                    result.add(check);
+                    result.add(check); // edit
             }
             else
                 loop = false;
