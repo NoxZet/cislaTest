@@ -46,7 +46,6 @@ public class NumberGroup {
                     else
                         break;
                 }
-                System.out.println(num+": "+local+", ");
                 if (low)
                 {
                     if (total==-1 || local<total)
@@ -58,6 +57,8 @@ public class NumberGroup {
                         total=local;
                 }
             }
+            else if (low)
+                total = 0;
         }
         return total;
     }

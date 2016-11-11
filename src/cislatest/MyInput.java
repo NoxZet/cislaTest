@@ -53,7 +53,6 @@ public class MyInput
         for (int i : list)
         {
             totalResult *= i;
-            System.out.println(i);
         }
         
         if(lower)
